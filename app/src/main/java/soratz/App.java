@@ -1,3 +1,5 @@
+package soratz;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -14,6 +16,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.net.URL;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -403,6 +406,8 @@ public class App {
 	@SuppressWarnings("unchecked")
 	private ArrayList<Capital> readFromFile() {
 		String fileName = "capitals.dat";
+
+		// String fileURL = getClass().getClassLoader().getResource("capitals.dat").toString().substring(6);
 		ArrayList<Capital> list = null;
 		try(ObjectInputStream reader = new ObjectInputStream(new FileInputStream(fileName))) {
 			list = (ArrayList<Capital>) reader.readObject();

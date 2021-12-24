@@ -1,3 +1,5 @@
+package soratz;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
+import java.net.URL;
 
 import javax.swing.JLabel;
 

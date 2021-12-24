@@ -1,3 +1,5 @@
+package soratz;
+
 import java.util.Date;
 
 public class FlightThread extends Thread {

@@ -1,3 +1,5 @@
+package soratz;
+
 import java.io.Serializable;
 
 public class Route implements Serializable {

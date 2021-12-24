@@ -1,4 +1,7 @@
+package soratz;
+
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.net.URL;
 
 public class Flight implements Serializable {
 	private static final long serialVersionUID = 2L;
@@ -180,7 +184,7 @@ public class Flight implements Serializable {
 	
 	public static void writeFlightNumber() {
 		String fileName = "flightnumber.dat";
-		try(ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(fileName))) {
+		try(ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(fileName.toString().substring(6)))) {
 			writer.writeObject(flight_number);
 		} catch(IOException e) {
 			e.printStackTrace();

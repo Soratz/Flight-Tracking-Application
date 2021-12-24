@@ -1,3 +1,5 @@
+package soratz;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Image;
