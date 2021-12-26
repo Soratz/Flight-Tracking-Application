@@ -19,6 +19,7 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+    testImplementation("com.sikulix:sikulixapi:2.0.5")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")
@@ -27,6 +28,7 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass.set("soratz.App")
+    // mainClass.set("automatetestgui.TestGui")
 }
 
 tasks.named<Test>("test") {

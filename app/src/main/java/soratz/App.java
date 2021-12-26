@@ -47,6 +47,8 @@ public class App {
 	private JTextField capitalTextField;
 	
 	private ArrayList<Capital> capitals;
+	private JButton btnAddCapital;
+
 	private JSeparator separator2;
 	private JTextField textFieldTime;
 	
@@ -185,7 +187,7 @@ public class App {
 		lblNewLabel.setBounds(10, 13, 127, 14);
 		panel1.add(lblNewLabel);
 		
-		JButton btnAddCapital = new JButton("Add Capital");
+		btnAddCapital = new JButton("Add Capital");
 		btnAddCapital.setBounds(10, 52, 127, 23);
 		panel1.add(btnAddCapital);
 		btnAddCapital.addActionListener(new ActionListener() {
@@ -489,7 +491,55 @@ public class App {
 	public FlightPanel getFlightPanel() {
 		return panel2;
 	}
-	
+
+	public JButton getClockButton() {
+		return this.clockButton;
+	}
+
+    public JButton getStopButton() {
+		return this.stopButton;
+	}
+
+	public JList<Capital> getListCapital() {
+		return this.listCapital;
+	}
+
+	public JButton getBtnAddCapital() {
+		return this.btnAddCapital;
+	}
+
+	public JTextField getCapitalTextField() {
+		return this.capitalTextField;
+	}
+
+	public JTextField getTextFieldTime() {
+		return this.textFieldTime;
+	}
+
+	public JComboBox<Capital> getComboBoxFrom() {
+		return this.comboBoxFrom;
+	}
+
+	public JComboBox<Capital> getComboBoxTo() {
+		return this.comboBoxTo;
+	}
+
+	public JList<Route> getListRoute() {
+		return this.listRoute;
+	}
+
+	public JButton getBtnAddRoute() {
+		return this.btnAddRoute;
+	}
+
+	public JButton getBtnDeleteRoute() {
+		return this.btnDeleteRoute;
+	}
+
+	public JButton getBtnUpdateRoute() {
+		return this.btnUpdateRoute;
+	}
+
 	public ControlTowerPanel getControlTowerPanel() {
 		return panel3;
 	}
