@@ -6,3 +6,9 @@ build
 
 **.dat
 **.txt
+**.png
+**.zip
+**.project
+**.settings
+**.classpath
+**/bin/

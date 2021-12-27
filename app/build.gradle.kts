@@ -28,7 +28,12 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass.set("soratz.App")
-    // mainClass.set("automatetestgui.TestGui")
+}
+
+tasks.jar {
+    manifest {
+        attributes(mapOf("Main-Class" to application.mainClass))
+    }
 }
 
 tasks.named<Test>("test") {

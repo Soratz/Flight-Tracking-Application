@@ -1,7 +1,7 @@
 package soratz;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Order;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,26 +9,27 @@ import java.util.Arrays;
 import java.nio.file.Files;
 import java.io.InputStream;
 import java.io.OutputStream;
-//import java.io.ByteArrayInputStream;
-//import java.io.PrintStream;
 import java.io.IOException;
 import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import java.awt.Rectangle;
-//import java.awt.event.ActionEvent;
 
 import org.sikuli.script.*;
-//import org.sikuli.basics.*;
 
 class TestApp {
-    @Test void testGUIBasic() {
+
+    @Test
+    @Order(2)
+    void testGUIBasic() {
         deleteFile("capitals.dat");
 
         ImagePath.setBundlePath(FileSystems.getDefault().getPath("sikuli_images").toString());
 
-        org.sikuli.script.App guiApp = new org.sikuli.script.App("\"C:\\apps\\git_dir\\Flight-Tracking-Application\\gradlew.bat\"");
-        guiApp.setUsing("run");
+        org.sikuli.script.App guiApp = new org.sikuli.script.App("\"C:\\apps\\scoop\\apps\\openjdk11\\current\\bin\\javaw.exe\"");
+        guiApp.setUsing("-jar C:\\apps\\git_dir\\Flight-Tracking-Application\\app\\build\\libs\\app.jar");
         guiApp.open(8);
+
         org.sikuli.script.App.focus("Flight Tracking Application");
 
         Rectangle rect0 = Screen.getBounds(Screen.getPrimaryId());
@@ -58,6 +59,7 @@ class TestApp {
         }
     } 
     @Test
+    @Order(1)
     void testCapitalSerializeDeserialize() {
         deleteFile("capitals.dat");
         soratz.App appUnderTest1 = new App();
@@ -83,7 +85,10 @@ class TestApp {
 
     void deleteFile(String fileName) {
         try {
-            Files.delete(FileSystems.getDefault().getPath(fileName));
+            Path targetPath = FileSystems.getDefault().getPath(fileName);
+            if( Files.exists(targetPath)) { 
+                Files.delete(FileSystems.getDefault().getPath(fileName));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,8 +102,6 @@ class TestApp {
         ) {
             int c;
             while( (c=fileInputStream.read()) != -1) {
-                // fileByteString += Integer.toString(c);
-                // System.out.print(Integer.toString(c));
                 fileByteList.add((byte)c);
             }
         } catch( IOException e ) {
@@ -108,7 +111,6 @@ class TestApp {
         for(int i=changeByteStart; i<changeByteStart+changeByteList.size() && i<fileByteList.size(); i++) {
             fileByteList.set(i, changeByteList.get(i-changeByteStart));
         }
-
 
         try(
             OutputStream fileOutputStream = Files.newOutputStream(
